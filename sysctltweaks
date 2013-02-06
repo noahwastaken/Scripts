@@ -1,0 +1,4 @@
+#!/system/bin/sh
+# grep sysctl /etc/init.d/*
+/etc/init.d/02vm:# Load /sys/etc/sysctl.conf
+/etc/init.d/02vm:sysctl -p
