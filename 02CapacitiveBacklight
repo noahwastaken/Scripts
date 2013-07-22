@@ -1,0 +1,5 @@
+#!/system/bin/sh
+
+#capacitive-backlight always on
+
+echo "255" > /sys/class/leds/button-backlight/brightness
