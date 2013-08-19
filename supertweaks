@@ -4,7 +4,20 @@
 # ========================================
 
 #strict minfree handler tweak
-echo "2048,3072,6144,15360,17920,20480" > /sys/module/lowmemorykiller/parameters/minfree
+echo "1536,2048,3072,6144,15360,17920,20480" > /sys/module/lowmemorykiller/parameters/minfree
+
+#for lag (credit to firasusman)
+if [ -e /proc/sys/vm/swappiness ]; then
+        echo "0" > /proc/sys/vm/swappiness
+fi
+
+if [ -e /proc/sys/vm/vfs_cache_pressure ]; then
+        echo "50" > /proc/sys/vm/vfs_cache_pressure
+fi
+
+if [ -e /proc/sys/vm/dirty_expire_centisecs ]; then
+        echo "3000" > /proc/sys/vm/dirty_expire_centisecs
+fi
 
 #internet speed tweaks
 echo "0" > /proc/sys/net/ipv4/tcp_timestamps;
@@ -85,5 +98,10 @@ rm /dev/log/main
 mount -t debugfs none /sys/kernel/debug
 echo NO_NORMALIZED_SLEEPER > /sys/kernel/debug/sched_features
 
+#GPU rendering
+mount -o rw,remount /system
+rm /system/lib/egl/libGLES_android.so
+busybox sed -i '/0 0 android/d' /system/lib/egl/egl.cfg
+mount -o ro,remount /system
 
 
