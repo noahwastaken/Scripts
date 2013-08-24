@@ -18,7 +18,6 @@
 STL=`ls -d /sys/block/stl*`;
 BML=`ls -d /sys/block/bml*`;
 MMC=`ls -d /sys/block/mmc*`;
-ZRM=`ls -d /sys/block/zram*`;
 MTD=`ls -d /sys/block/mtd*`;
 
 
@@ -164,25 +163,6 @@ sysctl -w vm.dirty_ratio=80;
 sysctl -w vm.vfs_cache_pressure=10;
 sysctl -w vm.overcommit_memory=1;
 sysctl -w vm.oom_kill_allocating_task=0;
-
-
-# =========
-# TWEAKS: adding zram swap in RAM
-# =========
-
-#insmod /system/modules/zram.ko num_devices=1
-#echo $((96*1024*1024)) > /sys/block/zram0/disksize
-#mknod /dev/zram0 b 253 0
-#mkswap /dev/zram0
-#swapon /dev/zram0
-                
-# ==============================================================
-# ==============================================================
-# ==============================================================
-# renice processes at wake. Credits to lpy: http://forum.xda-developers.com/showthread.php?t=1137554
-# ==============================================================
-# ==============================================================
-# ==============================================================
 
 
     ### Phone dialer app ###
