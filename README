@@ -4,4 +4,4 @@
 ############################################
 ############################################
 
-scytl.conf goes in system/etc directory
+sysctl.conf goes in system/etc directory
