@@ -3,3 +3,5 @@
 ###Init.d Scripts and Other Misc. Scripts###
 ############################################
 ############################################
+
+scytl.conf goes in system/etc directory
