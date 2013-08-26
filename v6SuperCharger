@@ -1,0 +1,232 @@
+#!/sbin/bash
+
+echo "            \\\\\\\\ V6 SUPERCHARGER ////"
+echo "             ======================="
+echo "Redesigned as an init.d script for Newer Devices"
+echo "Original author zeppelinrox"
+echo "Authored by Lens-F"
+echo ""
+	
+mount -o remount,rw /system
+mount -o remount,rw /dev/block/mtdblock3 /system
+mount -o remount,rw /dev/block/mtdblock6 /system
+
+EOF
+opt=$1
+line=================================================
+echo ""
+ HL=`getprop ro.HOME_APP_ADJ`;FA=`getprop ro.FOREGROUND_APP_ADJ`;VA=`getprop ro.VISIBLE_APP_ADJ`
+ MB0=4;MB1=0
+ SP1=0;SL1=0
+ echo $line
+ sleep 2
+ echo ""
+ fi
+ echo ""
+ sleep 2
+ echo $line
+ echo "            \\\\\\\\ V6 SUPERCHARGER ////"
+ echo "             ======================="
+ echo ""
+ sleep 2
+case $opt in
+  1) echo "      AGGRESSIVE 1 + HARD TO KILL LAUNCHER"
+	 CONFIG="Aggressive 1"
+	 MB1=6;MB2=8;MB3=20;MB4=30;MB5=40;MB6=50;;
+esac
+echo $line
+echo ""
+sleep 2
+if [ "$opt" -le 8 ]; then
+	SP1=$(($MB0*256));SL1=$(($MB1*256));SL2=$(($MB2*256));SL3=$(($MB3*256));SL4=$(($MB4*256));SL5=$(($MB5*256));SL6=$(($MB6*256))
+	echo ""
+	sleep 2
+fi
+if [ "$opt" -le 10 ]; then
+	echo $line
+	if [ "$opt" -le 8 ]; then
+		echo "SuperCharging Performance: $CONFIG!"
+		echo $line
+		echo ""
+		sleep 2
+		echo "Out Of Memory (OOM) / lowmemorykiller values:"
+		echo ""
+		sleep 2
+		awk -F , '{print "   Old MB="$1/256",",$2/256",",$3/256",",$4/256",",$5/256",",$6/256 " mb"}' /sys/module/lowmemorykiller/parameters/minfree
+		echo "   New MB=$MB1, $MB2, $MB3, $MB4, $MB5, $MB6 mb"
+		echo ""
+		sleep 2
+		echo "Old Pages="`cat /sys/module/lowmemorykiller/parameters/minfree`
+		echo "New Pages=$SL1,$SL2,$SL3,$SL4,$SL5,$SL6"
+		sleep 5
+	fi
+	if [ -f "/system/etc/rootfs/init.mapphone_umts.rc" ]; then
+		if [ "$opt" -le 8 ]; then
+			sed -i '/.*_MEM/d' /system/etc/rootfs/init.mapphone_umts.rc
+			sed -i '/lowmemorykiller/d' /system/etc/rootfs/init.mapphone_umts.rc
+		fi
+		echo ""
+		echo "Fixing Out Of Memory (OOM) Groupings..."
+		echo ""
+		sed -i '/on boot/ a\
+    write /sys/module/lowmemorykiller/parameters/adj 0,2,4,7,14,15' /system/etc/rootfs/init.mapphone_umts.rc
+		sleep 2
+		echo "                     ...Fixing OOM Priorities..."
+		echo ""
+		sleep 2
+		sed -i '/on early/ a\
+    setprop ro.FOREGROUND_APP_ADJ 0' /system/etc/rootfs/init.mapphone_umts.rc
+		sed -i '/ro.FOREGROUND_APP_ADJ/ a\
+    setprop ro.VISIBLE_APP_ADJ 2' /system/etc/rootfs/init.mapphone_umts.rc
+		sed -i '/ro.VISIBLE_APP_ADJ/ a\
+    setprop ro.PERCEPTIBLE_APP_ADJ 0' /system/etc/rootfs/init.mapphone_umts.rc
+		sed -i '/ro.PERCEPTIBLE_APP_ADJ/ a\
+    setprop ro.HEAVY_WEIGHT_APP_ADJ 5' /system/etc/rootfs/init.mapphone_umts.rc
+		sed -i '/ro.HEAVY_WEIGHT_APP_ADJ/ a\
+    setprop ro.SECONDARY_SERVER_ADJ 4' /system/etc/rootfs/init.mapphone_umts.rc
+		sed -i '/ro.SECONDARY_SERVER_ADJ/ a\
+    setprop ro.BACKUP_APP_ADJ 6' /system/etc/rootfs/init.mapphone_umts.rc
+		sed -i '/ro.BACKUP_APP_ADJ/ a\
+    setprop ro.HOME_APP_ADJ 2' /system/etc/rootfs/init.mapphone_umts.rc
+		sed -i '/ro.HOME_APP_ADJ/ a\
+    setprop ro.HIDDEN_APP_MIN_ADJ 7' /system/etc/rootfs/init.mapphone_umts.rc
+		sed -i '/ro.HIDDEN_APP_MIN_ADJ/ a\
+    setprop ro.CONTENT_PROVIDER_ADJ 8' /system/etc/rootfs/init.mapphone_umts.rc
+		sed -i '/ro.CONTENT_PROVIDER_ADJ/ a\
+    setprop ro.EMPTY_APP_ADJ 15' /system/etc/rootfs/init.mapphone_umts.rc
+		echo "OOM Groupings and Priorities are now fixed!"
+		echo ""
+		sleep 2
+		if [ "$opt" -eq 10 ]; then
+			echo "Applying BulletProof Launcher..."
+			echo ""
+			sleep 2
+			sed -i 's/.* ro.HOME_APP_ADJ .*/    setprop ro.HOME_APP_ADJ 0/' /system/etc/rootfs/init.mapphone_umts.rc
+			echo "Launcher is no Longer Hard To Kill..."
+			echo ""
+			sleep 2
+			echo "                            ...It's BULLETPROOF!"
+		else
+			echo "Applying Hard To Kill Launcher..."
+			echo ""
+			sleep 2
+			sed -i 's/.* ro.HOME_APP_ADJ .*/    setprop ro.HOME_APP_ADJ 1/' /system/etc/rootfs/init.mapphone_umts.rc
+			echo "               ...Hard To Kill Launcher APPLIED!"
+		fi
+		echo ""
+		sleep 2
+		if [ "$opt" -le 8 ]; then
+			sed -i '/lowmemorykiller/ a\
+    write /sys/module/lowmemorykiller/parameters/minfree '$SL1,$SL2,$SL3,$SL4,$SL5,$SL6 /system/etc/rootfs/init.mapphone_umts.rc
+			sed -i '/ro.EMPTY_APP_ADJ/ a\
+    setprop ro.FOREGROUND_APP_MEM '$SL1 /system/etc/rootfs/init.mapphone_umts.rc
+			sed -i '/ro.FOREGROUND_APP_MEM/ a\
+    setprop ro.VISIBLE_APP_MEM '$SL2 /system/etc/rootfs/init.mapphone_umts.rc
+			sed -i '/ro.VISIBLE_APP_MEM/ a\
+    setprop ro.PERCEPTIBLE_APP_MEM '$SP1 /system/etc/rootfs/init.mapphone_umts.rc
+			sed -i '/ro.PERCEPTIBLE_APP_MEM/ a\
+    setprop ro.HEAVY_WEIGHT_APP_MEM '$SL4 /system/etc/rootfs/init.mapphone_umts.rc
+			sed -i '/ro.HEAVY_WEIGHT_APP_MEM/ a\
+    setprop ro.SECONDARY_SERVER_MEM '$SL3 /system/etc/rootfs/init.mapphone_umts.rc
+			sed -i '/ro.SECONDARY_SERVER_MEM/ a\
+    setprop ro.BACKUP_APP_MEM '$SL4 /system/etc/rootfs/init.mapphone_umts.rc
+			sed -i '/ro.BACKUP_APP_MEM/ a\
+    setprop ro.HOME_APP_MEM '$SP1 /system/etc/rootfs/init.mapphone_umts.rc
+			sed -i '/ro.HOME_APP_MEM/ a\
+    setprop ro.HIDDEN_APP_MEM '$SL4 /system/etc/rootfs/init.mapphone_umts.rc
+			sed -i '/ro.HIDDEN_APP_MEM/ a\
+    setprop ro.CONTENT_PROVIDER_MEM '$SL5 /system/etc/rootfs/init.mapphone_umts.rc
+			sed -i '/ro.CONTENT_PROVIDER_MEM/ a\
+    setprop ro.EMPTY_APP_MEM '$SL6 /system/etc/rootfs/init.mapphone_umts.rc
+		fi
+		echo "Applying Kernel/Memory Tweaks..."
+		sed -i '/minfree/ a\
+    write /proc/sys/vm/oom_kill_allocating_task 0' /system/etc/rootfs/init.mapphone_umts.rc
+		sed -i '/oom_kill_allocating_task/ a\
+    write /proc/sys/vm/panic_on_oom 0' /system/etc/rootfs/init.mapphone_umts.rc
+		sed -i '/panic_on_oom/ a\
+    write /proc/sys/kernel/panic_on_oops 1' /system/etc/rootfs/init.mapphone_umts.rc
+		sed -i '/panic_on_oops/ a\
+    write /proc/sys/kernel/panic 0' /system/etc/rootfs/init.mapphone_umts.rc
+	else
+		echo ""
+		echo "Fixing Out Of Memory (OOM) Groupings..."
+		echo ""
+		sleep 2
+		echo "                     ...Fixing OOM Priorities..."
+		echo ""
+		sleep 2
+		echo "ro.FOREGROUND_APP_ADJ=0" >> /data/local.prop
+		echo "ro.VISIBLE_APP_ADJ=2" >> /data/local.prop
+		echo "ro.PERCEPTIBLE_APP_ADJ=0" >> /data/local.prop
+		echo "ro.HEAVY_WEIGHT_APP_ADJ=5" >> /data/local.prop
+		echo "ro.SECONDARY_SERVER_ADJ=4" >> /data/local.prop
+		echo "ro.BACKUP_APP_ADJ=6" >> /data/local.prop
+		echo "ro.HOME_APP_ADJ=2" >> /data/local.prop
+		echo "ro.HIDDEN_APP_MIN_ADJ=7" >> /data/local.prop
+		echo "ro.CONTENT_PROVIDER_ADJ=8" >> /data/local.prop
+		echo "ro.EMPTY_APP_ADJ=15" >> /data/local.prop
+		echo "OOM Groupings and Priorities are now fixed!"
+		echo ""
+		sleep 2
+		if [ "$opt" -eq 10 ]; then
+			echo "Applying BulletProof Launcher..."
+			echo ""
+			sleep 2
+			sed -i 's/ro.HOME_APP_ADJ=.*/ro.HOME_APP_ADJ=0/' /data/local.prop
+			echo "Launcher is no Longer Hard To Kill..."
+			echo ""
+			sleep 2
+			echo "                             ..It's BULLETPROOF!"
+		else
+			echo "Applying Hard To Kill Launcher..."
+			echo ""
+			sleep 2
+			sed -i 's/ro.HOME_APP_ADJ=.*/ro.HOME_APP_ADJ=1/' /data/local.prop
+			echo "               ...Hard To Kill Launcher APPLIED!"
+		fi
+		echo ""
+		sleep 2
+		if [ "$opt" -le 8 ]; then
+			echo "ro.FOREGROUND_APP_MEM=$SL1" >> /data/local.prop
+			echo "ro.VISIBLE_APP_MEM=$SL2" >> /data/local.prop
+			echo "ro.PERCEPTIBLE_APP_MEM=$SP1" >> /data/local.prop
+			echo "ro.HEAVY_WEIGHT_APP_MEM=$SL4" >> /data/local.prop
+			echo "ro.SECONDARY_SERVER_MEM=$SL3" >> /data/local.prop
+			echo "ro.BACKUP_APP_MEM=$SL4" >> /data/local.prop
+			echo "ro.HOME_APP_MEM=$SP1" >> /data/local.prop
+			echo "ro.HIDDEN_APP_MEM=$SL4" >> /data/local.prop
+			echo "ro.CONTENT_PROVIDER_MEM=$SL5" >> /data/local.prop
+			echo "ro.EMPTY_APP_MEM=$SL6" >> /data/local.prop
+		fi
+		echo "Applying Kernel/Memory Tweaks..."
+		if [ -d "/system/etc/init.d" ]; then
+			if [ -f "/data/99SuperCharger.sh" ]; then
+				rm /data/99SuperCharger.sh
+			fi
+			if [ ! -f "/system/etc/init.d/99SuperCharger" ]; then
+				echo "#/sbin/sh" > /system/etc/init.d/99SuperCharger
+			fi
+			echo "echo "0,2,4,7,14,15" > /sys/module/lowmemorykiller/parameters/adj" >> /system/etc/init.d/99SuperCharger
+			if [ "$opt" -le 8 ]; then
+				echo "echo "$SL1,$SL2,$SL3,$SL4,$SL5,$SL6" > /sys/module/lowmemorykiller/parameters/minfree" >> /system/etc/init.d/99SuperCharger
+			fi
+			echo "echo "0" > /proc/sys/vm/oom_kill_allocating_task" >> /system/etc/init.d/99SuperCharger
+			echo "echo "0" > /proc/sys/vm/panic_on_oom" >> /system/etc/init.d/99SuperCharger
+			echo "/system/xbin/sysctl -w kernel.panic_on_oops=1" >> /system/etc/init.d/99SuperCharger
+			echo "/system/xbin/sysctl -w kernel.panic=0" >> /system/etc/init.d/99SuperCharger
+			chmod 755 /system/etc/init.d/99SuperCharger
+			chown 0.2000 /system/etc/init.d/99SuperCharger
+		else
+			if [ -f "/system/etc/init.d/99SuperCharger" ]; then
+				rm /system/etc/init.d/99SuperCharger
+			fi
+			if [ ! -f "/data/99SuperCharger.sh" ]; then
+				echo "#/sbin/sh" > /data/99SuperCharger.sh
+			fi
+			echo "echo "0,2,4,7,14,15" > /sys/module/lowmemorykiller/parameters/adj" >> /data/99SuperCharger.sh
+			if [ "$opt" -le 8 ]; then
+				echo "echo "$SL1,$SL2,$SL3,$SL4,$SL5,$SL6" > /sys/module/lowmemorykiller/parameters/minfree" >> /data/99SuperCharger.sh
+			fi
+fi
+done
