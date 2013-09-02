@@ -3,8 +3,6 @@
 echo "            \\\\\\\\ V6 SUPERCHARGER ////"
 echo "             ======================="
 echo "Redesigned as an init.d script for Newer Devices"
-echo "Original author zeppelinrox"
-echo "Authored by Lens-F"
 echo ""
 	
 mount -o remount,rw /system
