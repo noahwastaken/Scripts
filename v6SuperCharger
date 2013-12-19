@@ -1,13 +1,13 @@
 #!/sbin/bash
 
-echo "            \\\\\\\\ V6 SUPERCHARGER ////"
-echo "             ======================="
+echo "            \\\\\\\\ V6 SUPERCHARGER HTC ONE ////"
+echo "             ===================================="
 echo "Redesigned as an init.d script for Newer Devices"
 echo ""
 	
 mount -o remount,rw /system
-mount -o remount,rw /dev/block/mtdblock3 /system
-mount -o remount,rw /dev/block/mtdblock6 /system
+mount -o remount,rw /dev/block/mmcblk0p37 /system
+mount -o remount,rw /dev/block/mmcblk0p37 /system
 
 EOF
 opt=$1
