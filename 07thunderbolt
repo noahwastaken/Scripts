@@ -1,11 +1,5 @@
 #!/system/bin/sh
 #ThunderBolt!
-#Credits:
-# zacharias.maladroit
-# voku1987
-# collin_ph@xda
-# Lens-F
-# TAKE NOTE THAT LINES PRECEDED BY A "#" IS COMMENTED OUT!
 
 # ==============================================================
 # ==============================================================
@@ -595,33 +589,4 @@ echo "NO_NORMALIZED_SLEEPER" > /sys/kernel/debug/sched_features;
                 echo "100" > /sys/devices/system/cpu/cpufreq/conservative/freq_step; # more aggressive ramping up (50) # screen off: # 10
         fi;
 
-
-# ==============================================================
-# elementalx
-# ==============================================================
-        if [ -e /sys/devices/system/cpu/cpu0/cpufreq/elementalx/up_threshold ]; then
-                echo "95" > /sys/devices/system/cpu/cpu0/cpufreq/elementalx/up_threshold;
-                echo "20" > /sys/devices/system/cpu/cpu0/cpufreq/elementalx/down_differential;
-                #echo "10" > /sys/devices/system/cpu/cpu0/cpufreq/elementalx/io_is_busy;
-                #echo "10" > /sys/devices/system/cpu/cpu0/cpufreq/elementalx/sampling_down_factor;
-                #echo "30000" > /sys/devices/system/cpu/cpu0/cpufreq/elementalx/sampling_rate;
-        fi;             
-        if [ -e /sys/devices/system/cpu/cpu1/cpufreq/elementalx/up_threshold ]; then
-        
-                echo "95" > /sys/devices/system/cpu/cpu1/cpufreq/elementalx/up_threshold;
-                echo "20" > /sys/devices/system/cpu/cpu1/cpufreq/elementalx/down_differential;
-                #echo "10" > /sys/devices/system/cpu/cpu1/cpufreq/elementalx/io_is_busy;
-                #echo "10" > /sys/devices/system/cpu/cpu1/cpufreq/elementalx/sampling_down_factor;
-                #echo "30000" > /sys/devices/system/cpu/cpu1/cpufreq/elementalx/sampling_rate;
-                
-        fi;
-        if [ -e /sys/devices/system/cpu/cpufreq/elementalx/up_threshold ]; then
-
-                echo "95" > /sys/devices/system/cpu/cpufreq/elementalx/up_threshold;
-                echo "20" > /sys/devices/system/cpu/cpufreq/elementalx/down_differential;
-                #echo "10" > /sys/devices/system/cpu/cpufreq/elementalx/io_is_busy;
-                #echo "10" > /sys/devices/system/cpu/cpufreq/elementalx/sampling_down_factor;
-                #echo "30000" > /sys/devices/system/cpu/cpufreq/elementalx/sampling_rate;
-        fi;
-        
         
