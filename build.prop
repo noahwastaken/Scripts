@@ -1,0 +1,98 @@
+THESE ARE BUILD.PROP TWEAKS FOR ALL ANDROID PHONES.....JUST PASTE TO BOTTOM OF YOUR BUILD.PROP
+
+#Graphics & performances tweaks
+debug.sf.hw = 1
+debug.composition.type = c2d
+debug.enabletr = true
+debug.qctwa.preservebuf = 1
+ro.sf.compbypass.enable=1
+video.accelerate.hw=1
+ro.media.enc.hprof.vid.fps=75
+debug.egl.hw=1
+persist.sys.use_16bpp_alpha=1
+debug.performance.tuning=1
+persist.sys.use_dithering=0
+persist.sys.ui.hw=1
+windowsmgr.max_events_per_sec=1000
+ro.max.fling_velocity=10000
+ro.min.fling_velocity=6000
+
+#Battery improvements
+pm.sleep_mode=1
+ro.ril.disable.power.collapse=0
+persist.sys.shutdown.mode=hibernate
+wifi.supplicant_scan_interval=180
+
+#Media quality improvements
+media.stagefright.enable-player=true
+media.stagefright.enable-meta=true
+media.stagefright.enable-scan=true
+media.stagefright.enable-http=true
+media.stagefright.enable-record=false
+ro.media.enc.jpeg.quality=100
+ro.media.dec.jpeg.memcap=8000000
+ro.media.enc.hprof.vid.bps=8000000
+
+#Dalvik tweaks
+dalvik.vm.dexopt-data-only=1
+dalvik.vm.verify_bytecode=false
+dalvik.vm.dexopt-flags=m=v,o=y
+dalvik.vm.execution-mode=int:jit
+dalvik.gc.type=precise 
+
+#Decrease boot time
+ro.config.hw_quickpoweron=true
+persist.sys.shutdown.mode=hibernate
+dev.bootcomplete=0
+
+#Power saving
+ro.ril.power_collapse=1
+pm.sleep_mode=1
+wifi.supplicant_scan_interval=120
+ro.mot.eri.losalert.delay=1000
+
+#3G Tweaks
+ro.ril.hsxpa=2
+ro.ril.gprsclass=10
+ro.ril.hsdpa.category=10
+ro.ril.hsupa.category=5
+ro.ril.enable.a53=1
+ro.ril.enable.3g.prefix=1
+ro.ril.hep=1
+ro.ril.enable.dtm=1
+ro.rill.enable.a53=1
+
+#Telephony/ring Tweaks
+ro.telephony.call_ring.delay=0
+ring.delay=0
+
+#Proximity
+mot.proximity.delay=0
+ro.lge.proximity.delay=25
+
+#Smooth Scrolling
+windowsmgr.max_events_per_sec=84
+ro.max.fling_velocity=12000
+ro.min.fling_velocity=8000
+
+#Disables error reports
+profiler.force_disable_err_rpt=1
+profiler.force_disable_ulog=1
+
+#Force home launcher into memory
+ro.HOME_APP_ADJ = 1
+
+#Render UI with GPU
+debug.sf.hw = 1
+
+#Disable logcat
+logcat.live=disable
+
+#This value is different for different phones!
+dalvik.vm.heapsize = 64m
+
+#Phone will not wake up from hitting volume rocker
+ro.config.hwfeature_wakeupkey=0
+
+#Allows purging of assets to free up RAM
+persist.sys.purgeable_assets=1
