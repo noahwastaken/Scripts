@@ -1,5 +1,3 @@
-THESE ARE BUILD.PROP TWEAKS FOR ALL ANDROID PHONES.....JUST PASTE TO BOTTOM OF YOUR BUILD.PROP
-
 #Graphics & performances tweaks
 debug.sf.hw = 1
 debug.composition.type = c2d
