@@ -29,16 +29,24 @@ media.stagefright.enable-meta=true
 media.stagefright.enable-scan=true
 media.stagefright.enable-http=true
 media.stagefright.enable-record=false
-ro.media.enc.jpeg.quality=100
-ro.media.dec.jpeg.memcap=8000000
 ro.media.enc.hprof.vid.bps=8000000
+ro.media.enc.hprof.vid.fps=65
+ro.media.dec.jpeg.memcap=8000000
+ro.media.enc.jpeg.quality=100
 
 #Dalvik tweaks
 dalvik.vm.dexopt-data-only=1
 dalvik.vm.verify_bytecode=false
 dalvik.vm.dexopt-flags=m=v,o=y
 dalvik.vm.execution-mode=int:jit
-dalvik.gc.type=precise 
+dalvik.gc.type=precise
+dalvik.vm.heapstartsize=8m
+dalvik.vm.heapgrowthlimit=64m
+dalvik.vm.heapsize=256m
+dalvik.vm.heaptargetutilization=0.75
+dalvik.vm.heapminfree=2m
+dalvik.vm.heapmaxfree=8m
+persist.sys.dalvik.vm.lib=libdvm.so
 
 #Decrease boot time
 ro.config.hw_quickpoweron=true
