@@ -1,6 +1,6 @@
 #!/system/bin/sh
 
-# Make perms all loosey-goosey
+# Make perms all loose
 [ -d /sys/devices/system/cpu/cpufreq/interactive ] && interactivegovernor
 
 # ICUP FUNI CULURSZ
