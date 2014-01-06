@@ -9,13 +9,6 @@
 sysctl -p /system/etc/sysctl.conf
 
 #
-# Set SD Card Cache
-#
-if [ -e /sys/devices/virtual/bdi/179:0/read_ahead_kb ]; then
-  echo 256 > /sys/devices/virtual/bdi/179:0/read_ahead_kb
-fi
-
-#
 # General Queue Tweaks
 #
 for i in /sys/block/*/queue; do
