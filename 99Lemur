@@ -16,3 +16,9 @@ echo 1728000 > /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq;
 #Set GPU Frequency
 echo 409500000 > /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk;
 echo 409500000 > /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/gpuclk;
+
+#Battery Life Extender
+echo 100 > /sys/class/misc/batterylifeextender/charging_limit
+
+#Volume boost
+echo 0 > /sys/class/misc/soundcontrol/volume_boost
