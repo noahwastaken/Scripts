@@ -9,7 +9,7 @@ LOG_FILE=/data/akcontrol.log
     #fi;
 
  echo "" | tee -a $LOG_FILE;
- echo "Start AK Settings at $( date +"%m-%d-%Y %H:%M:%S" ) ---------------------------------" | tee -a $LOG_FILE;
+ echo "Start Settings at $( date +"%m-%d-%Y %H:%M:%S" ) ---------------------------------" | tee -a $LOG_FILE;
 
  #####################################################################
  # Battery Life Extender #############################################
