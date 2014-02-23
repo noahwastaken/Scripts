@@ -1,0 +1,102 @@
+#!/system/bin/sh
+#
+# Kernel Control
+#
+
+LOG_FILE=/data/akcontrol.log
+    #if [ -e $LOG_FILE ]; then
+    #	rm $LOG_FILE;
+    #fi;
+
+ echo "" | tee -a $LOG_FILE;
+ echo "Start AK Settings at $( date +"%m-%d-%Y %H:%M:%S" ) ---------------------------------" | tee -a $LOG_FILE;
+
+ #####################################################################
+ # Battery Life Extender #############################################
+ # (Default 100) #####################################################
+   echo 100 > /sys/class/misc/batterylifeextender/charging_limit | tee -a $LOG_FILE;
+   echo -n "Battery Life Extender Now: " | tee -a $LOG_FILE; cat /sys/class/misc/batterylifeextender/charging_limit | tee -a $LOG_FILE;
+
+ #####################################################################
+ # Volume boost ######################################################
+ # (Default disabled 0; Values from 0-3) #############################
+   echo 0 > /sys/class/misc/soundcontrol/volume_boost | tee -a $LOG_FILE;
+   echo -n "Volume Boost Now: "  | tee -a $LOG_FILE; cat /sys/class/misc/soundcontrol/volume_boost | tee -a $LOG_FILE;
+
+ #####################################################################
+ # High performance audio ############################################
+ # (Default Disabled = 0; Enabled = 1) ###############################
+   echo 1 > /sys/class/misc/soundcontrol/highperf_enabled | tee -a $LOG_FILE;
+   echo -n "Sound Control Now: " | tee -a $LOG_FILE; cat /sys/class/misc/soundcontrol/highperf_enabled | tee -a $LOG_FILE;
+
+ #####################################################################
+ # Vibrator strength #################################################
+ # (Default = 100; Values from 0-100) ################################
+   echo 25 > /sys/vibrator/pwmvalue | tee -a $LOG_FILE;
+   echo -n "Vibrator Control Now: " | tee -a $LOG_FILE; cat /sys/vibrator/pwmvalue | tee -a $LOG_FILE;
+
+ #####################################################################
+ # Fsync #############################################################
+ # (Default Enabled = 1; Disabled = 0) ###############################
+    echo 0 > /sys/class/misc/fsynccontrol/fsync_enabled | tee -a $LOG_FILE;
+    echo -n "Fsync Control Now: " | tee -a $LOG_FILE; cat /sys/class/misc/fsynccontrol/fsync_enabled | tee -a $LOG_FILE;
+
+ #####################################################################
+ # Gpu OC ############################################################
+ # (Default = 307; Values 0 = 307MHz, 1 = 384MHz, 2 = 512MHz) ########
+    echo 2 > /sys/devices/system/cpu/cpu0/cpufreq/gpu_oc | tee -a $LOG_FILE;
+    echo -n "Gpu OC Control Now: " | tee -a $LOG_FILE; cat /sys/devices/system/cpu/cpu0/cpufreq/gpu_oc | tee -a $LOG_FILE;
+
+ #####################################################################
+ # Thermal Throttle ##################################################
+ # (Default Enabled = 1, Disabled = 0) ###############################
+    echo 0 > /sys/module/omap_temp_sensor/parameters/throttle_enabled | tee -a $LOG_FILE;
+    echo -n "Thermal Throttle Control Now: " | tee -a $LOG_FILE; cat /sys/module/omap_temp_sensor/parameters/throttle_enabled | tee -a $LOG_FILE;
+
+ #####################################################################
+ # Min Freq ##########################################################
+ # (Default = 345600) ################################################
+ # (Freqs tables 172800, 345600, 691200, 1075200, 1344000, 1420800) ##
+    echo 172800 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq | tee -a $LOG_FILE;
+    echo -n "Min Freq Control Now      : " | tee -a $LOG_FILE; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq | tee -a $LOG_FILE;
+
+ #####################################################################
+ # Max Freq ##########################################################
+ # (Default = 1344000) ###############################################
+ # (Freqs tables 172800, 345600, 691200, 1075200, 1344000, 1420800) ##
+    echo 1420800 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq | tee -a $LOG_FILE;
+    echo -n "Max Freq Control Now      : " | tee -a $LOG_FILE; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq | tee -a $LOG_FILE;
+
+ #####################################################################
+ # Screen Off Freq ###################################################
+ # (Default = 345600) ################################################
+ # (Freqs tables 172800, 345600, 691200, 1075200, 1344000, 1420800) ##
+    echo 345600 > /sys/devices/system/cpu/cpu0/cpufreq/screen_off_max_freq | tee -a $LOG_FILE;
+    echo -n "Screen off Freq Control Now      : " | tee -a $LOG_FILE; cat /sys/devices/system/cpu/cpu0/cpufreq/screen_off_max_freq | tee -a $LOG_FILE;
+
+ #####################################################################
+ # Usb Fast Charge ###################################################
+ # (Default Disabled = 0, Enabled = 1) ###############################
+    echo 0 > /sys/kernel/fast_charge/force_fast_charge | tee -a $LOG_FILE;
+    echo -n "Usb Fast Charge Control Now      : " | tee -a $LOG_FILE; cat /sys/kernel/fast_charge/force_fast_charge | tee -a $LOG_FILE;
+
+ #####################################################################
+ # Wifi PM ###########################################################
+ # (Default Disabled = 0, Enabled = 1) ###############################
+    echo 0 > /sys/module/bcmdhd/parameters/wifi_pm | tee -a $LOG_FILE;
+    echo -n "Wifi PM Control Now      : " | tee -a $LOG_FILE; cat /sys/module/bcmdhd/parameters/wifi_pm | tee -a $LOG_FILE;
+
+ #####################################################################
+ # ReadAhead Buffer ##################################################
+ # (Default = 512; Values from 128 to 4096) ##########################
+    echo 512 > /sys/block/mmcblk0/bdi/read_ahead_kb | tee -a $LOG_FILE;
+    echo -n "ReadAhead Buffer Now : " | tee -a $LOG_FILE; cat /sys/block/mmcblk0/bdi/read_ahead_kb | tee -a $LOG_FILE;
+
+ #####################################################################
+ # Content Adaptive Brightness #######################################
+ # (Default Enabled = 1; Disabled = 0) ###############################
+    echo 1 > /sys/class/backlight/s6e8aa0/acl_set | tee -a $LOG_FILE;
+    echo -n "Content Adaptive Brightness Now : " | tee -a $LOG_FILE; cat /sys/class/backlight/s6e8aa0/acl_set | tee -a $LOG_FILE;
+
+ echo "End Settings at $( date +"%m-%d-%Y %H:%M:%S" ) ------------------------------------" | tee -a $LOG_FILE;
+ echo "" | tee -a $LOG_FILE;
