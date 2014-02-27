@@ -12,12 +12,6 @@ LOG_FILE=/data/akcontrol.log
  echo "Start Settings at $( date +"%m-%d-%Y %H:%M:%S" ) ---------------------------------" | tee -a $LOG_FILE;
 
  #####################################################################
- # Battery Life Extender #############################################
- # (Default 100) #####################################################
-   echo 100 > /sys/class/misc/batterylifeextender/charging_limit | tee -a $LOG_FILE;
-   echo -n "Battery Life Extender Now: " | tee -a $LOG_FILE; cat /sys/class/misc/batterylifeextender/charging_limit | tee -a $LOG_FILE;
-
- #####################################################################
  # Volume boost ######################################################
  # (Default disabled 0; Values from 0-3) #############################
    echo 0 > /sys/class/misc/soundcontrol/volume_boost | tee -a $LOG_FILE;
