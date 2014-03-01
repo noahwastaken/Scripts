@@ -49,23 +49,23 @@ LOG_FILE=/data/akcontrol.log
 
  #####################################################################
  # Min Freq ##########################################################
- # (Default = 345600) ################################################
- # (Freqs tables 172800, 345600, 691200, 1075200, 1344000, 1420800) ##
+ # (Default = 384000) ################################################
+ # (Freqs tables 172800, 384000, 691200, 1075200, 1344000, 1420800) ##
     echo 172800 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq | tee -a $LOG_FILE;
     echo -n "Min Freq Control Now      : " | tee -a $LOG_FILE; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq | tee -a $LOG_FILE;
 
  #####################################################################
  # Max Freq ##########################################################
  # (Default = 1344000) ###############################################
- # (Freqs tables 172800, 345600, 691200, 1075200, 1344000, 1420800) ##
+ # (Freqs tables 172800, 384000, 691200, 1075200, 1344000, 1420800) ##
     echo 1420800 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq | tee -a $LOG_FILE;
     echo -n "Max Freq Control Now      : " | tee -a $LOG_FILE; cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq | tee -a $LOG_FILE;
 
  #####################################################################
  # Screen Off Freq ###################################################
- # (Default = 345600) ################################################
- # (Freqs tables 172800, 345600, 691200, 1075200, 1344000, 1420800) ##
-    echo 345600 > /sys/devices/system/cpu/cpu0/cpufreq/screen_off_max_freq | tee -a $LOG_FILE;
+ # (Default = 384000) ################################################
+ # (Freqs tables 172800, 384000, 691200, 1075200, 1344000, 1420800) ##
+    echo 384000 > /sys/devices/system/cpu/cpu0/cpufreq/screen_off_max_freq | tee -a $LOG_FILE;
     echo -n "Screen off Freq Control Now      : " | tee -a $LOG_FILE; cat /sys/devices/system/cpu/cpu0/cpufreq/screen_off_max_freq | tee -a $LOG_FILE;
 
  #####################################################################
