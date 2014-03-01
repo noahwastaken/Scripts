@@ -1,6 +1,4 @@
 #!/system/xbin/bash
-# Consolidated CrossBreeder Script
-# aosp
 BUSYBOX="/system/xbin/busybox"
 
 if [ -f /system/lib/modules/frandom.ko ]; then
