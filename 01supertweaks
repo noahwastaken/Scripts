@@ -6,7 +6,6 @@
 #strict minfree handler tweak
 echo "1536,2048,3072,6144,15360,17920,20480" > /sys/module/lowmemorykiller/parameters/minfree
 
-#for lag (credit to firasusman)
 if [ -e /proc/sys/vm/swappiness ]; then
         echo "0" > /proc/sys/vm/swappiness
 fi
@@ -104,4 +103,17 @@ rm /system/lib/egl/libGLES_android.so
 busybox sed -i '/0 0 android/d' /system/lib/egl/egl.cfg
 mount -o ro,remount /system
 
+#Ondemand governor tweaks
+SAMPLING_RATE=$(busybox expr `cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_transition_latency` \* 750 / 1000)
+echo 95 > /sys/devices/system/cpu/cpufreq/ondemand/up_threshold
+echo $SAMPLING_RATE > /sys/devices/system/cpu/cpu0/cpufreq/ondemand/sampling_rate
 
+#ROW IOSCHEDULER
+echo "row" > /sys/block/mmcblk0/queue/scheduler
+
+#SMARTMAX GOVERNOR
+echo "smartmax" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+
+#DISABLE NORMALIZE SLEEPER
+mount -t debugfs none /sys/kernel/debug
+echo NO_NORMALIZED_SLEEPER > /sys/kernel/debug/sched_features
