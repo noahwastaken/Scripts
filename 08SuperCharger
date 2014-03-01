@@ -199,32 +199,32 @@ if [ "$opt" -le 10 ]; then
 		fi
 		echo "Applying Kernel/Memory Tweaks..."
 		if [ -d "/system/etc/init.d" ]; then
-			if [ -f "/data/99SuperCharger.sh" ]; then
-				rm /data/99SuperCharger.sh
+			if [ -f "/data/08SuperCharger.sh" ]; then
+				rm /data/08SuperCharger.sh
 			fi
-			if [ ! -f "/system/etc/init.d/99SuperCharger" ]; then
-				echo "#/sbin/sh" > /system/etc/init.d/99SuperCharger
+			if [ ! -f "/system/etc/init.d/08SuperCharger" ]; then
+				echo "#/sbin/sh" > /system/etc/init.d/08SuperCharger
 			fi
-			echo "echo "0,2,4,7,14,15" > /sys/module/lowmemorykiller/parameters/adj" >> /system/etc/init.d/99SuperCharger
+			echo "echo "0,2,4,7,14,15" > /sys/module/lowmemorykiller/parameters/adj" >> /system/etc/init.d/08SuperCharger
 			if [ "$opt" -le 8 ]; then
 				echo "echo "$SL1,$SL2,$SL3,$SL4,$SL5,$SL6" > /sys/module/lowmemorykiller/parameters/minfree" >> /system/etc/init.d/99SuperCharger
 			fi
-			echo "echo "0" > /proc/sys/vm/oom_kill_allocating_task" >> /system/etc/init.d/99SuperCharger
-			echo "echo "0" > /proc/sys/vm/panic_on_oom" >> /system/etc/init.d/99SuperCharger
-			echo "/system/xbin/sysctl -w kernel.panic_on_oops=1" >> /system/etc/init.d/99SuperCharger
-			echo "/system/xbin/sysctl -w kernel.panic=0" >> /system/etc/init.d/99SuperCharger
-			chmod 755 /system/etc/init.d/99SuperCharger
-			chown 0.2000 /system/etc/init.d/99SuperCharger
+			echo "echo "0" > /proc/sys/vm/oom_kill_allocating_task" >> /system/etc/init.d/08SuperCharger
+			echo "echo "0" > /proc/sys/vm/panic_on_oom" >> /system/etc/init.d/08SuperCharger
+			echo "/system/xbin/sysctl -w kernel.panic_on_oops=1" >> /system/etc/init.d/08SuperCharger
+			echo "/system/xbin/sysctl -w kernel.panic=0" >> /system/etc/init.d/08SuperCharger
+			chmod 755 /system/etc/init.d/08SuperCharger
+			chown 0.2000 /system/etc/init.d/08SuperCharger
 		else
-			if [ -f "/system/etc/init.d/99SuperCharger" ]; then
-				rm /system/etc/init.d/99SuperCharger
+			if [ -f "/system/etc/init.d/08SuperCharger" ]; then
+				rm /system/etc/init.d/08SuperCharger
 			fi
-			if [ ! -f "/data/99SuperCharger.sh" ]; then
-				echo "#/sbin/sh" > /data/99SuperCharger.sh
+			if [ ! -f "/data/08SuperCharger.sh" ]; then
+				echo "#/sbin/sh" > /data/08SuperCharger.sh
 			fi
-			echo "echo "0,2,4,7,14,15" > /sys/module/lowmemorykiller/parameters/adj" >> /data/99SuperCharger.sh
+			echo "echo "0,2,4,7,14,15" > /sys/module/lowmemorykiller/parameters/adj" >> /data/08SuperCharger.sh
 			if [ "$opt" -le 8 ]; then
-				echo "echo "$SL1,$SL2,$SL3,$SL4,$SL5,$SL6" > /sys/module/lowmemorykiller/parameters/minfree" >> /data/99SuperCharger.sh
+				echo "echo "$SL1,$SL2,$SL3,$SL4,$SL5,$SL6" > /sys/module/lowmemorykiller/parameters/minfree" >> /data/08SuperCharger.sh
 			fi
 fi
 done
