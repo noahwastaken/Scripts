@@ -169,7 +169,7 @@ fi
 
 #Fsync
 if [ "`grep fsync_enabled=0 $LEMUR_CONF`" ]; then
-    echo 0 > /sys/class/misc/fsynccontrol/fsync_enabled | tee -a >> $LEMUR_LOGFILE;
+    echo 1 > /sys/class/misc/fsynccontrol/fsync_enabled | tee -a >> $LEMUR_LOGFILE;
     echo -n "Fsync Control Now: " | tee -a >> $LEMUR_LOGFILE; cat /sys/class/misc/fsynccontrol/fsync_enabled | tee -a >> $LEMUR_LOGFILE;
 fi
 
