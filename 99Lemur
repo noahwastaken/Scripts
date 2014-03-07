@@ -155,6 +155,24 @@ elif [ "`grep COLOR_ENHANCE=1 $LEMUR_CONF`" ]; then
   echo HTC color enhance enabled >> $LEMUR_LOGFILE;
 fi
 
+#Volume boost
+if [ "`grep volume_boost=0 $LEMUR_CONF`" ]; then
+   echo 0 > /sys/class/misc/soundcontrol/volume_boost | tee -a >> $LEMUR_LOGFILE;
+   echo -n "Volume Boost Now: "  | tee -a >> $LEMUR_LOGFILE; cat /sys/class/misc/soundcontrol/volume_boost | tee -a >> $LEMUR_LOGFILE;
+fi
+
+#High performance audio
+if [ "`grep highperf_enabled=0 $LEMUR_CONF`" ]; then
+   echo 1 > /sys/class/misc/soundcontrol/highperf_enabled | tee -a >> $LEMUR_LOGFILE;
+   echo -n "Sound Control Now: " | tee -a >> $LEMUR_LOGFILE; cat /sys/class/misc/soundcontrol/highperf_enabled | tee -a >> $LEMUR_LOGFILE;
+fi
+
+#Fsync
+if [ "`grep fsync_enabled=0 $LEMUR_CONF`" ]; then
+    echo 0 > /sys/class/misc/fsynccontrol/fsync_enabled | tee -a >> $LEMUR_LOGFILE;
+    echo -n "Fsync Control Now: " | tee -a >> $LEMUR_LOGFILE; cat /sys/class/misc/fsynccontrol/fsync_enabled | tee -a >> $LEMUR_LOGFILE;
+fi
+
 #fstrim
 fstrim -v /cache | tee -a $LEMUR_LOGFILE;
 fstrim -v /data | tee -a $LEMUR_LOGFILE;
