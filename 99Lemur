@@ -173,6 +173,10 @@ if [ "`grep fsync_enabled=0 $LEMUR_CONF`" ]; then
     echo -n "Fsync Control Now: " | tee -a >> $LEMUR_LOGFILE; cat /sys/class/misc/fsynccontrol/fsync_enabled | tee -a >> $LEMUR_LOGFILE;
 fi
 
+#ReadAhead Buffer
+    echo 4096 > /sys/block/mmcblk0/bdi/read_ahead_kb | tee -a $LOG_FILE;
+    echo -n "ReadAhead Buffer Now : " | tee -a >> $LEMUR_LOGFILE; cat /sys/block/mmcblk0/bdi/read_ahead_kb | tee -a >> $LEMUR_LOGFILE;
+
 #fstrim
 fstrim -v /cache | tee -a $LEMUR_LOGFILE;
 fstrim -v /data | tee -a $LEMUR_LOGFILE;
