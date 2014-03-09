@@ -1,7 +1,7 @@
 #!/sbin/bash
 
-echo "            \\\\\\\\ SUPERCHARGER HTC ONE ////"
-echo "             ===================================="
+echo "            \\\\\\\\ SUPERCHARGER Sprint HTC ONE ////"
+echo "             ========================================"
 echo "Redesigned as an init.d script for Newer Devices"
 echo ""
 	
@@ -219,10 +219,10 @@ if [ "$opt" -le 10 ]; then
 			if [ -f "/system/etc/init.d/08SuperCharger" ]; then
 				rm /system/etc/init.d/08SuperCharger
 			fi
-			if [ ! -f "/data/08SuperCharger.sh" ]; then
-				echo "#/sbin/sh" > /data/08SuperCharger.sh
+			if [ ! -f "/data/08SuperCharger" ]; then
+				echo "#/etc/init.d" > /data/08SuperCharger
 			fi
-			echo "echo "0,2,4,7,14,15" > /sys/module/lowmemorykiller/parameters/adj" >> /data/08SuperCharger.sh
+			echo "echo "0,2,4,7,14,15" > /sys/module/lowmemorykiller/parameters/adj" >> /data/08SuperCharger
 			if [ "$opt" -le 8 ]; then
 				echo "echo "$SL1,$SL2,$SL3,$SL4,$SL5,$SL6" > /sys/module/lowmemorykiller/parameters/minfree" >> /data/08SuperCharger.sh
 			fi
