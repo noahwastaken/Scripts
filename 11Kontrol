@@ -26,13 +26,13 @@ LOG_FILE=/data/akcontrol.log
  #####################################################################
  # Vibrator strength #################################################
  # (Default = 100; Values from 0-100) ################################
-   echo 25 > /sys/vibrator/pwmvalue | tee -a $LOG_FILE;
+   echo 50 > /sys/vibrator/pwmvalue | tee -a $LOG_FILE;
    echo -n "Vibrator Control Now: " | tee -a $LOG_FILE; cat /sys/vibrator/pwmvalue | tee -a $LOG_FILE;
 
  #####################################################################
  # Fsync #############################################################
  # (Default Enabled = 1; Disabled = 0) ###############################
-    echo 0 > /sys/class/misc/fsynccontrol/fsync_enabled | tee -a $LOG_FILE;
+    echo 1 > /sys/class/misc/fsynccontrol/fsync_enabled | tee -a $LOG_FILE;
     echo -n "Fsync Control Now: " | tee -a $LOG_FILE; cat /sys/class/misc/fsynccontrol/fsync_enabled | tee -a $LOG_FILE;
 
  #####################################################################
