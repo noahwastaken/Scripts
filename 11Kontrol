@@ -37,8 +37,8 @@ LOG_FILE=/data/akcontrol.log
 
  #####################################################################
  # Gpu OC ############################################################
- # (Default = 307; Values 0 = 307MHz, 1 = 384MHz, 2 = 512MHz) ########
-    echo 2 > /sys/devices/system/cpu/cpu0/cpufreq/gpu_oc | tee -a $LOG_FILE;
+ # (Default = 400; Values 0 = 400MHz, 1 = 450MHz, 2 = 587MHz) ########
+    echo 1 > /sys/devices/system/cpu/cpu0/cpufreq/gpu_oc | tee -a $LOG_FILE;
     echo -n "Gpu OC Control Now: " | tee -a $LOG_FILE; cat /sys/devices/system/cpu/cpu0/cpufreq/gpu_oc | tee -a $LOG_FILE;
 
  #####################################################################
@@ -71,7 +71,7 @@ LOG_FILE=/data/akcontrol.log
  #####################################################################
  # Usb Fast Charge ###################################################
  # (Default Disabled = 0, Enabled = 1) ###############################
-    echo 0 > /sys/kernel/fast_charge/force_fast_charge | tee -a $LOG_FILE;
+    echo 1 > /sys/kernel/fast_charge/force_fast_charge | tee -a $LOG_FILE;
     echo -n "Usb Fast Charge Control Now      : " | tee -a $LOG_FILE; cat /sys/kernel/fast_charge/force_fast_charge | tee -a $LOG_FILE;
 
  #####################################################################
@@ -83,7 +83,7 @@ LOG_FILE=/data/akcontrol.log
  #####################################################################
  # ReadAhead Buffer ##################################################
  # (Default = 512; Values from 128 to 4096) ##########################
-    echo 512 > /sys/block/mmcblk0/bdi/read_ahead_kb | tee -a $LOG_FILE;
+    echo 1024 > /sys/block/mmcblk0/bdi/read_ahead_kb | tee -a $LOG_FILE;
     echo -n "ReadAhead Buffer Now : " | tee -a $LOG_FILE; cat /sys/block/mmcblk0/bdi/read_ahead_kb | tee -a $LOG_FILE;
 
  #####################################################################
