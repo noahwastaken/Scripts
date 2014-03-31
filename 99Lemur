@@ -15,6 +15,161 @@ echo 384000 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq;
 echo 384000 > /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq;
 echo 384000 > /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq;
 
+#CPU Governor settings
+if [ "`grep CPU_GOV=2 $LEMUR_CONF`" ]; then
+  echo abyssplugv2 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  echo abyssplugv2 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  echo abyssplugv2 > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  echo abyssplugv2 > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  echo abyssplugv2 CPU Governor >> $LEMUR_LOGFILE;
+elif [ "`grep CPU_GOV=3 $LEMUR_CONF`" ]; then
+  echo asswax > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  echo asswax > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  echo asswax > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  echo asswax > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  echo asswax CPU Governor >> $LEMUR_LOGFILE;
+elif [ "`grep CPU_GOV=4 $LEMUR_CONF`" ]; then
+  echo badass > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  echo badass > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  echo badass > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  echo badass > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  echo badass CPU Governor >> $LEMUR_LOGFILE;
+elif [ "`grep CPU_GOV=5 $LEMUR_CONF`" ]; then
+  echo dancedance > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  echo dancedance > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  echo dancedance > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  echo dancedance > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  echo dancedance CPU Governor >> $LEMUR_LOGFILE;
+elif [ "`grep CPU_GOV=6 $LEMUR_CONF`" ]; then
+  echo darkness > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  echo darkness > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  echo darkness > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  echo darkness > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  echo darkness CPU Governor >> $LEMUR_LOGFILE;
+elif [ "`grep CPU_GOV=7 $LEMUR_CONF`" ]; then
+  echo intellidemand > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  echo intellidemand > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  echo intellidemand > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  echo intellidemand > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  echo intellidemand CPU Governor >> $LEMUR_LOGFILE;
+elif [ "`grep CPU_GOV=8 $LEMUR_CONF`" ]; then
+  echo intelliactive > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  echo intelliactive > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  echo intelliactive > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  echo intelliactive > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  echo intelliactive CPU Governor >> $LEMUR_LOGFILE;
+elif [ "`grep CPU_GOV=9 $LEMUR_CONF`" ]; then
+  echo interactivex2 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  echo interactivex2 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  echo interactivex2 > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  echo interactivex2 > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  echo interactivex2 CPU Governor >> $LEMUR_LOGFILE;
+elif [ "`grep CPU_GOV=10 $LEMUR_CONF`" ]; then
+  echo lagfree > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  echo lagfree > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  echo lagfree > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  echo lagfree > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  echo lagfree CPU Governor >> $LEMUR_LOGFILE;
+elif [ "`grep CPU_GOV=11 $LEMUR_CONF`" ]; then
+  echo lionheart > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  echo lionheart > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  echo lionheart > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  echo lionheart > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  echo lionheart CPU Governor >> $LEMUR_LOGFILE;
+elif [ "`grep CPU_GOV=12 $LEMUR_CONF`" ]; then
+  echo smartass2 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  echo smartass2 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  echo smartass2 > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  echo smartass2 > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  echo smartass2 CPU Governor >> $LEMUR_LOGFILE;
+elif [ "`grep CPU_GOV=13 $LEMUR_CONF`" ]; then
+  echo smartassH3 > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  echo smartassH3 > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  echo smartassH3 > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  echo smartassH3 > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  echo smartassH3 CPU Governor >> $LEMUR_LOGFILE;
+elif [ "`grep CPU_GOV=14 $LEMUR_CONF`" ]; then
+  echo smartmax > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  echo smartmax > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  echo smartmax > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  echo smartmax > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  echo smartmax CPU Governor >> $LEMUR_LOGFILE;
+elif [ "`grep CPU_GOV=15 $LEMUR_CONF`" ]; then
+  echo savagedzen > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  echo savagedzen > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  echo savagedzen > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  echo savagedzen > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  echo savagedzen CPU Governor >> $LEMUR_LOGFILE;
+elif [ "`grep CPU_GOV=16 $LEMUR_CONF`" ]; then
+  echo wheatley > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+  echo wheatley > /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu1/cpufreq/scaling_governor
+  echo wheatley > /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor
+  echo wheatley > /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  chmod 444 /sys/devices/system/cpu/cpu3/cpufreq/scaling_governor
+  echo wheatley CPU Governor >> $LEMUR_LOGFILE;
+else
+  echo ondemand CPU Governor >> $LEMUR_LOGFILE;
+fi
+
 #Find PVS bin
 PVS="`cat /sys/module/acpuclock_krait/parameters/pvs_number`"
 echo PVS: $PVS >> $LEMUR_LOGFILE;
@@ -82,28 +237,28 @@ fi
 
 #Set PICK2WAKE
 if [ "`grep PICK2WAKE=1 $LEMUR_CONF`" ]; then
-  echo 1 > /sys/android_touch/pick2wake;
+  echo 1 > /sys/devices/virtual/htc_g_sensor/g_sensor/pick2wake;
   echo Pick2Wake enabled >> $LEMUR_LOGFILE;
 else
-  echo 0 > /sys/android_touch/pick2wake;
+  echo 0 > /sys/devices/virtual/htc_g_sensor/g_sensor/pick2wake;
   echo Pick2Wake disabled >> $LEMUR_LOGFILE;
 fi
 
 #Set FLICK2WAKE
 if [ "`grep FLICK2WAKE=1 $LEMUR_CONF`" ]; then
-  echo 1 > /sys/android_touch/flick2wake;
+  echo 1 > /sys/devices/virtual/htc_g_sensor/g_sensor/flick2wake;
   echo Flick2Wake enabled >> $LEMUR_LOGFILE;
 else
-  echo 0 > /sys/android_touch/flick2wake;
+  echo 0 > /sys/devices/virtual/htc_g_sensor/g_sensor/flick2wake;
   echo Flick2Wake disabled >> $LEMUR_LOGFILE;
 fi
 
 #Set FLICK2SLEEP
 if [ "`grep FLICK2SLEEP=1 $LEMUR_CONF`" ]; then
-  echo 1 > /sys/android_touch/flick2sleep;
+  echo 1 > /sys/devices/virtual/htc_g_sensor/g_sensor/flick2sleep;
   echo Flick2Sleep enabled >> $LEMUR_LOGFILE;
 else
-  echo 0 > /sys/android_touch/flick2sleep;
+  echo 0 > /sys/devices/virtual/htc_g_sensor/g_sensor/flick2sleep;
   echo Flick2Sleep disabled >> $LEMUR_LOGFILE;
 fi
 
@@ -155,97 +310,14 @@ elif [ "`grep COLOR_ENHANCE=1 $LEMUR_CONF`" ]; then
   echo HTC color enhance enabled >> $LEMUR_LOGFILE;
 fi
 
-#Volume boost
-if [ "`grep volume_boost=0 $LEMUR_CONF`" ]; then
-   echo 0 > /sys/class/misc/soundcontrol/volume_boost | tee -a >> $LEMUR_LOGFILE;
-   echo -n "Volume Boost Now: "  | tee -a >> $LEMUR_LOGFILE; cat /sys/class/misc/soundcontrol/volume_boost | tee -a >> $LEMUR_LOGFILE;
+#Dynamic Fsync
+if [ "`grep DYN_FSYNC=0 $LEMUR_CONF`" ]; then
+  echo 0 > /sys/kernel/dyn_fsync/Dyn_fsync_active;
+  echo Dynamic Fsync disabled >> $LEMUR_LOGFILE;
+elif [ "`grep DYN_FSYNC=1 $LEMUR_CONF`" ]; then
+  echo 1 > /sys/kernel/dyn_fsync/Dyn_fsync_active;
+  echo Dynamic Fsync enabled >> $LEMUR_LOGFILE;
 fi
-
-#High performance audio
-if [ "`grep highperf_enabled=0 $LEMUR_CONF`" ]; then
-   echo 1 > /sys/class/misc/soundcontrol/highperf_enabled | tee -a >> $LEMUR_LOGFILE;
-   echo -n "Sound Control Now: " | tee -a >> $LEMUR_LOGFILE; cat /sys/class/misc/soundcontrol/highperf_enabled | tee -a >> $LEMUR_LOGFILE;
-fi
-
-#Fsync
-if [ "`grep fsync_enabled=0 $LEMUR_CONF`" ]; then
-    echo 1 > /sys/class/misc/fsynccontrol/fsync_enabled | tee -a >> $LEMUR_LOGFILE;
-    echo -n "Fsync Control Now: " | tee -a >> $LEMUR_LOGFILE; cat /sys/class/misc/fsynccontrol/fsync_enabled | tee -a >> $LEMUR_LOGFILE;
-fi
-
-#ReadAhead Buffer
-    echo 4096 > /sys/block/mmcblk0/bdi/read_ahead_kb | tee -a $LOG_FILE;
-    echo -n "ReadAhead Buffer Now : " | tee -a >> $LEMUR_LOGFILE; cat /sys/block/mmcblk0/bdi/read_ahead_kb | tee -a >> $LEMUR_LOGFILE;
-
-if [ -e $i/queue/rotational ]; 
-        then
-                echo 0 > $i/queue/rotational; 
-        fi;
-        if [ -e $i/queue/nr_requests ];
-        then
-                echo 1024 > $i/queue/nr_requests; # for starters: keep it sane
-        fi;
-        #CFQ specific
-        if [ -e $i/queue/iosched/back_seek_penalty ];
-        then 
-                echo 1 > $i/queue/iosched/back_seek_penalty;
-        fi;
-        #CFQ specific
-        if [ -e $i/queue/iosched/low_latency ];
-        then
-                echo 1 > $i/queue/iosched/low_latency;
-        fi;
-        #CFQ Specific
-        if [ -e $i/queue/iosched/slice_idle ];
-        then 
-                echo 1 > $i/queue/iosched/slice_idle; # previous: 1
-        fi;
-        # deadline/VR/SIO scheduler specific
-        if [ -e $i/queue/iosched/fifo_batch ];
-        then
-                echo 4 > $i/queue/iosched/fifo_batch;
-        fi;
-        if [ -e $i/queue/iosched/writes_starved ];
-        then
-                echo 1 > $i/queue/iosched/writes_starved;
-        fi;
-        #CFQ specific
-        if [ -e $i/queue/iosched/quantum ];
-        then
-                echo 8 > $i/queue/iosched/quantum;
-        fi;
-        #VR Specific
-        if [ -e $i/queue/iosched/rev_penalty ];
-        then
-                echo 1 > $i/queue/iosched/rev_penalty;
-        fi;
-        if [ -e $i/queue/rq_affinity ];
-        then
-        echo "1"   >  $i/queue/rq_affinity;   
-        fi;
-#disable iostats to reduce overhead
-        if [ -e $i/queue/iostats ];
-        then
-                echo "0" > $i/queue/iostats;
-        fi;
-# Optimize for read- & write-throughput; 
-# Optimize for readahead; 
-        if [ -e $i/queue/read_ahead_kb ];
-        then
-                echo "256" >  $i/queue/read_ahead_kb;
-        fi;
-# Commented out nomerges (Merges are good). max_sectors_kb to default - don't tweak it
-#          echo "0"   >  $i/queue/nomerges
-#          echo "128" >  $i/queue/max_sectors_kb
-        
-done;
-# Specifically for NAND devices where reads are faster than writes, writes starved 2:1 is good
-for i in $STL $BML $ZRM $MTD;
-do
-        if [ -e $i/queue/iosched/writes_starved ];
-        then
-                echo 2 > $i/queue/iosched/writes_starved;
-        fi;
 
 #fstrim
 fstrim -v /cache | tee -a $LEMUR_LOGFILE;
@@ -292,6 +364,42 @@ fi
 if [ -e /system/bin/pnpmgr ]; then
   chmod 444 /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk;
 fi
+
+#io scheduler settings
+SCHED=`grep "SCHED" $LEMUR_CONF | cut -d '=' -f2`
+if [ "`grep SCHED=1 $LEMUR_CONF`" ]; then
+  echo cfq > /sys/block/mmcblk0/queue/scheduler;
+  echo CFQ io scheduler >> $LEMUR_LOGFILE;
+elif [ "`grep SCHED=3 $LEMUR_CONF`" ]; then
+  echo deadline > /sys/block/mmcblk0/queue/scheduler;
+  echo DEADLINE io scheduler >> $LEMUR_LOGFILE;
+elif [ "`grep SCHED=4 $LEMUR_CONF`" ]; then
+  echo fiops > /sys/block/mmcblk0/queue/scheduler;
+  echo FIOPS io scheduler >> $LEMUR_LOGFILE;
+elif [ "`grep SCHED=5 $LEMUR_CONF`" ]; then
+  echo sio > /sys/block/mmcblk0/queue/scheduler;
+  echo SIO io scheduler >> $LEMUR_LOGFILE;
+elif [ "`grep SCHED=6 $LEMUR_CONF`" ]; then
+  echo bfq> /sys/block/mmcblk0/queue/scheduler;
+  echo BFQ io scheduler >> $LEMUR_LOGFILE;
+elif [ "`grep SCHED=7 $LEMUR_CONF`" ]; then
+  echo zen > /sys/block/mmcblk0/queue/scheduler;
+  echo ZEN io scheduler >> $LEMUR_LOGFILE;
+elif [ "`grep SCHED=8 $LEMUR_CONF`" ]; then
+  echo vr > /sys/block/mmcblk0/queue/scheduler;
+  echo VR io scheduler >> $LEMUR_LOGFILE;
+elif [ "`grep SCHED=9 $LEMUR_CONF`" ]; then
+  echo noop > /sys/block/mmcblk0/queue/scheduler;
+  echo NOOP io scheduler >> $LEMUR_LOGFILE;
+else
+  echo row > /sys/block/mmcblk0/queue/scheduler;
+  echo ROW io scheduler >> $LEMUR_LOGFILE;
+fi
+
+#Readahead settings
+READAHEAD=`grep "READAHEAD" $LEMUR_CONF | cut -d '=' -f2`
+echo $READAHEAD > /sys/block/mmcblk0/queue/read_ahead_kb
+echo Readahead size\: $READAHEAD >> $LEMUR_LOGFILE;
 
 #gboost
 if [ "`grep GBOOST=0 $LEMUR_CONF`" ]; then
