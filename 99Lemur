@@ -420,6 +420,7 @@ elif [ "`grep MPDEC=2 $LEMUR_CONF`" ]; then
   echo Mpdecision performance >> $LEMUR_LOGFILE;
 fi
 
+
 #mpdecision settings
 if [ "`grep MPDEC=1 $LEMUR_CONF`" ]; then
   echo "0 2.0 3.1 4.5" > /sys/power/pnpmgr/hotplug/mp_nw;
