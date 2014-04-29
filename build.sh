@@ -7,10 +7,9 @@
 # Date to add to zip
   today=$(date +"%m%d%Y")
   
-# Add version number to zip
+# Version Number to add to zip
    echo "Version Number"
-cd .version
-version=$(`grep '#' && cp '#')      
+VERSION=$(cat '.version')      
 
 # Clean Kernel
    echo "Clean Kernel"
@@ -37,7 +36,7 @@ version=$(`grep '#' && cp '#')
        mkdir -p "out/$c/system/lib/modules/"
 
   m=$k/out/$c/system/lib/modules
-  z=$c-$today
+  z=$c-"r${VERSION}"-$today
 
 TOOLCHAIN=/home/tal/custom-gcc-kernel-toolchains/arm-eabi/arm-eabi-4.10/bin/arm-eabi-
 export ARCH=arm
