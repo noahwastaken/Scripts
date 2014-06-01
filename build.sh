@@ -26,27 +26,6 @@ fi
 # Date to add to zip
   today=$(date +"%m%d%Y")
 
-
-echo -e "${bldcya}Building ${bldcya}Leaping ${bldcya}Lemur ${bldcya}Kernel ${txtrst}";
-echo -e "${bldred}______________________________________________${txtrst}"
-echo -e "${bldcya}______________________________________________${txtrst}"
-echo -e "${bldred}______________________________________________${txtrst}"
-echo -e "${bldblu}______________________________________________${txtrst}"
-echo -e "${bldcya}Get ${bldred}ready!!!!!!!!!!!!!!!!!!!!${txtrst}"                    
-echo -e "${bldred}My ${bldred}kernel ${bldred}is ${bldred}for ${bldred}android ${bldred}only${txtrst}"
-echo -e "${bldblu}Packed ${bldred}with ${bldred}A1 ${bldred}Sawce!!!!!!!!!${txtrst}"
-echo -e "${bldcya}______________________________________________${txtrst}"
-echo -e "${bldred}Leaping_Lemur>>>>>>${bldred}Regular ${bldred}Lemurs${txtrst}"
-echo -e "${bldblu}Leaping_Lemur>>>>>>${bldred}Regular ${bldred}Lemurs${txtrst}"
-echo -e "${bldcya}______________________________________________${txtrst}"
-echo -e "${bldred}Leaping_Lemur>>>>>>${bldred}Regular ${bldred}Lemurs${txtrst}"
-echo -e "${bldcya}Leaping_Lemur>>>>>>${bldred}Regular ${bldred}Lemurs${txtrst}"
-echo -e "${bldred}______________________________________________${txtrst}"
-echo -e "${bldblu}______________________________________________${txtrst}"
-echo -e "${bldcya}______________________________________________${txtrst}"
-echo -e "${bldblu}______________________________________________${txtrst}"
-
-
 # Clean Kernel
    echo "${bldcya}Clean ${bldcya}Kernel${txtrst}"
      make clean
@@ -73,7 +52,7 @@ echo -e "${bldblu}______________________________________________${txtrst}"
 
   m=$k/out/$c/system/lib/modules
 
-TOOLCHAIN=/home/tal/custom-gcc-kernel-toolchains/arm-eabi/arm-eabi-4.10/bin/arm-eabi-
+TOOLCHAIN=/home/tal/linaro-toolchains/arm-cortex_a15/arm-cortex_a15-linux-gnueabihf-linaro_4.9.1-2014.05/bin/arm-cortex_a15-linux-gnueabihf-
 export ARCH=arm
 export SUBARCH=arm
 
@@ -82,7 +61,9 @@ export SUBARCH=arm
  
 # remove backup files
 find ./ -name '*~' | xargs rm
-# rm compile.log
+
+#Compile Log
+make >& error.log
 
 # make kernel
 make 'lemur_defconfig'
