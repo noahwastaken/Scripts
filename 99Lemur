@@ -1,4 +1,6 @@
 #!/system/bin/sh
+# Credit to @flar2 to original idea/config
+# Tal Noah <tnoah12@gmail.com> multiple additions and changes
 
 LEMUR_CONF="/system/etc/lemur.conf"
 LEMUR_LOGFILE="/data/local/tmp/lemur.log"
