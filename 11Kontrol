@@ -1,7 +1,7 @@
 #!/system/bin/sh
-#
 # Kernel Control
-#
+# Copyright @anarkia1976
+# Changes by Tal Noah <tnoah12@gmail.com>
 
 LOG_FILE=/data/akcontrol.log
     #if [ -e $LOG_FILE ]; then
