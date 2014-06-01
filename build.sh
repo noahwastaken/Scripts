@@ -1,4 +1,5 @@
 #!/bin/bash
+# Leaping_Lemur build script by Tal Noah <tnoah12@gmail.com>
 
 # Colorize and add text parameters
 red=$(tput setaf 1)             #  red
