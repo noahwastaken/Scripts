@@ -1,8 +1,5 @@
 #!/system/bin/sh
 
-# Make perms all loose
-[ -d /sys/devices/system/cpu/cpufreq/interactive ] && interactivegovernor
-
 # ICUP FUNI CULURSZ
 [ -e /sys/class/misc/colorcontrol/v1_offset ] && chown system:system /sys/class/misc/colorcontrol/v1_offset && chmod 0666 /sys/class/misc/colorcontrol/v1_offset
 [ -e /sys/class/misc/colorcontrol/multiplier ] && chown system:system /sys/class/misc/colorcontrol/multiplier && chmod 0666 /sys/class/misc/colorcontrol/multiplier
